@@ -50,10 +50,6 @@ I want to express my gratitude to course instructors for providing a fruitful le
 
 **A:** 'Song Selector' is a project that does something useful.
 
-**Q:** How do I use 'Song Selector'?
-
-**A:** Follow the usage steps in the README file.
-
 ## **Contact**
 
 If you have any questions or comments, please contact me via yanachagalyan@gmail.com
