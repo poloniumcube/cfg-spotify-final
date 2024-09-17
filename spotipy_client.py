@@ -52,12 +52,3 @@ def search_track(token, track_name, artist_name):
         webbrowser.open(query_url) 
 
 token = get_token()
-
-
-    # old version with the preview URL instead of the web SDK
-    # if items: 
-    #     track_id = items[0]['id']
-    #     preview_url = items[0]['preview_url']
-    #     print(f"Here's the preview link: {preview_url}")
-    # else:
-    #     print("\nThe track is not on Spotify :(")
