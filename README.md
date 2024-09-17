@@ -1,6 +1,6 @@
 ## **Project Title**
 
-This project is a simple program that uses user input to recommend songs. 
+'Song Selector' is a simple program that uses user input to recommend songs. 
 
 ## **Introduction**
 
