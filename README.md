@@ -50,10 +50,6 @@ I want to express my gratitude to course instructors for providing a fruitful le
 
 **A:** 'Song Selector' is a project that does something useful.
 
-**Q:** How do I install 'Song Selector'?
-
-**A:** Follow the installation steps in the README file.
-
 **Q:** How do I use 'Song Selector'?
 
 **A:** Follow the usage steps in the README file.
