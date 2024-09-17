@@ -6,7 +6,11 @@ This code was written as a part of the final project for the CFG Python beginner
 
 This Kaggle dataset was used for selection based on several criteria: mood (major/minor key), duration (ms), genre, and century (19-21). A random result is then selected from the filtered sample and Spotipy - Spotify's API - is used to open and play the song in the browser version of the application.
 
-Libraries/packages used: pandas - for CSV parsing and filtering spotipy - for accessing Spotify's Web API requests - for sending an HTTP request python-dotenv - to set and access environmental variables
+Libraries/packages used: 
+pandas - for CSV parsing and filtering 
+spotipy - for accessing Spotify's Web API 
+requests - for sending an HTTP request 
+python-dotenv - to set and access environmental variables
 
 Installation
 To install Project Title, follow these steps:
