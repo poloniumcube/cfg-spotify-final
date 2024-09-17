@@ -42,7 +42,7 @@ Project Title is released under the MIT License. See the **[LICENSE](https://www
 
 The project was created by **[me](https://github.com/username)**.
 
-I want to express gratitude to the course instructors for providing a fruitful learning environment.
+I want to express my gratitude to course instructors for providing a fruitful learning environment.
 
 ## **FAQ**
 
