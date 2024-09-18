@@ -6,15 +6,15 @@
 
 This code was written as a part of the final project for the CFG Python beginner course.
 
-This Kaggle dataset was used for selection based on several criteria: mood (major/minor key), duration (ms), genre, and century (19-21). A random result is then selected from the filtered sample and Spotipy - Spotify's API - is used to open and play the song in the browser version of the application.
+This Kaggle dataset was used for selection based on several criteria: 
+* mood (major/minor key)
+* duration (ms)
+* genre
+* century (19-21)
+<br>
+A random result is then selected from the filtered sample and Spotipy (Spotify's API) is used to open and play the song in the browser version of the application.<br>
 
-Libraries/packages used: 
-    pandas - for CSV parsing and filtering 
-    spotipy - for accessing Spotify's Web API 
-    requests - for sending an HTTP request 
-    python-dotenv - to set and access environmental variables
-
-## **Installation**
+<!-- ## ## **Installation**
 
 To install 'Song Selector', follow these steps:
 
@@ -34,7 +34,7 @@ To use 'Song Selector', follow these steps:
 4. Start the project: **`npm start`**
 5. Use the project as desired.
 
-<!-- ## **License**
+## **License**
 
 'Song Selector' is released under the MIT License. See the **[LICENSE](https://www.blackbox.ai/share/LICENSE)** file for details. -->
 
@@ -42,14 +42,16 @@ To use 'Song Selector', follow these steps:
 
 The project was created by [me](https://github.com/poloniumcube).
 
-I want to express my gratitude to course instructors for providing a fruitful learning environment.
+I want to express my gratitude to the course instructors.
 
-## **FAQ**
+## **Additional info**
 
-**Q:** What is 'Song Selector'?
-
-**A:** 'Song Selector' is a project that does something useful.
-
+**Libraries/packages used:**
+* pandas - for CSV parsing and filtering 
+* spotipy - for accessing Spotify's Web API 
+* requests - for sending an HTTP request 
+* python-dotenv - to set and access environmental variables.
+  
 ## **Contact**
 
 If you have any questions or comments, please contact me via yanachagalyan@gmail.com
