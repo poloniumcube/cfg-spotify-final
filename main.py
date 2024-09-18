@@ -1,10 +1,6 @@
 import pandas as pd
 import random
 import spotipy_client as spc
-# import customtkinter
-
-# app = customtkinter.CTk()
-# app.mainloop()
 
 def songselection ():
     
@@ -102,10 +98,6 @@ It's '{track}' by {artist}, recorded in {year}\n''')
 
 songselection()
 
-# next steps -->
-    # 1. [m] import customtkinter to create a GUI for the user input --> issues with the installation, debug later
-        # 1.1 [a] add a button to the GUI to play the song on Spotify
-    # https://github.com/TomSchimansky/CustomTkinter
-    # https://customtkinter.tomschimansky.com/
-
-    # 2. [a] store the user's answers in a dictionary and use it to filter the dataset (more efficient [?])
+# # next steps -->
+#     # 1. [m] import customtkinter to create a GUI for the user input --> issues with the installation, debug later
+#     # 2. [a] store the user's answers in a dictionary and use it to filter the dataset (more efficient [?])
