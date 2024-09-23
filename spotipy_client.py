@@ -6,12 +6,14 @@ import urllib.parse
 import requests
 import webbrowser
 
+# limit at N-requests an hour, I think 60 or so? commented out so I don't go over the limit while testing
+ 
 load_dotenv()
 
-client_id = os.getenv('CLIENT_ID')
+client_id = os.getenv('CLIENT_ID') # could've made it static, but best practices are still a thing 
 client_secret = os.getenv('CLIENT_SECRET')
 
-def get_token(): # shamelessly followed a tutorial because spotipy's authentication process is ASS 
+def get_token(): 
     auth_string = client_id + ":" + client_secret
     auth_bytes = auth_string.encode("utf-8")
     auth_base64 = str(base64.b64encode(auth_bytes), "utf-8")
@@ -31,18 +33,18 @@ def get_auth_header(token):
     return{"Authorization": "Bearer " + token}
 
 def search_track(token, track_name, artist_name):
-    url = "https://api.spotify.com/v1/search"
+    url = "https://api.spotify.com/v1/search" # base endpoint
     headers = get_auth_header(token)
 
     # URL encode 
     track_name_encoded = urllib.parse.quote(track_name)
     artist_name_encoded = urllib.parse.quote(artist_name)
     
-    # query string with encoded parameters
+    # query with encoded parameters
     query = f"?q=track:{track_name_encoded}%20&artist:{artist_name_encoded}&type=track&limit=1"
     query_url = url + query
     
-    # get request +  parse the JSON response to get the track ID
+    # get request + parsing the JSON response to get the track ID
     result = requests.get(query_url, headers=headers)
     json_result = result.json()
     items = json_result['tracks']['items']

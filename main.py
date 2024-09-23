@@ -2,46 +2,55 @@ import pandas as pd
 import random
 import spotipy_client as spc
 
+## working code w/o the customtkinter gui
+
 def songselection ():
     
     print('''
         Hi, user! Welcome to the Song Selector - you'll get a tailored song recommendation after answering a few simple questions!
-        You'll see the example of an input in the curly braces () after every question - please make sure to type exactly what you see.
-        Example: "Do you want a song to be shorter (s) or longer (l)? (s/l): "
-        In this case, you would be expected to type 's' (without the captions) in the terminal.\n
+        Your answer options are indicated by [1] or [2] in the question - please make sure to type exactly what you see.
+        Example: "Do you want a song to be [1]shorter or [2]longer?: "
+        If you want a longer song, you would type 'longer' (without the captions) in the terminal.\n
         Have fun!
         ''')
 
     while True: # loop to restart the process if the user wants to try again
-        df = pd.read_csv('ClassicHit.csv')        
-        user_check = input('Do you want to proceed? (y/n) ').lower()
         
-        if user_check == 'n':
+        df = pd.read_csv('ClassicHit.csv')        
+        
+        # some cleaning for the sake of adhering to best practices (the dataset is expected to be clean but you never know)
+        df.drop_duplicates(inplace=True)
+        df = df[df['Mode'].isin([0,1])] 
+        df['Year'] = pd.to_numeric(df['Year'], errors='coerce')
+        df.dropna(subset=['Track', 'Artist', 'Year'],inplace=True) 
+
+        user_check = input('Do you want to proceed? (yes/no) ').strip().lower()        
+        if user_check == 'no':
             print('\nOkay, bye :(\n')
             break
-        elif user_check == 'y':
+        elif user_check == 'yes':
             print('\nOkay, let\'s go!\n')
             
-            # filter the dataset based on the user's input (mood, duration, genre, century)
-            user_mode = input('Now, what\'s your mood? Do you want the song to be happy (h) or rather sad (s)? (h/s) ').lower()
-            if user_mode == 'h':
+            # filter the dataset based on the user's input (mood, duration, genre, century) 
+            user_mode = input('Now, what\'s your mood? Do you want the song to be [1]happy or rather [2]sad? ').strip().lower()
+            if user_mode == 'happy':
                 print('\nSomeone\'s in a good mood :D Okay, next question:\n')
                 df = df[df['Mode'] == 1]  
-            elif user_mode == 's':
+            elif user_mode == 'sad':
                 print('\nA bad day? :( It\'s okay, let\'s go to the next question:\n')
                 df = df[df['Mode'] == 0]      
             
-            user_duration = input('Do you want a longer (l) or a shorter (s) one? (l/s) ').lower()
+            user_duration = input('Do you want a [1]longer or a [2]shorter one? ').strip()
             print('\nGotcha! I\'ll select a good one for you :D\n')
-            if user_duration == 'l':
+            if user_duration == 'longer':
                 df = df[df['Duration'] >= 175000]
-            elif user_duration == 's':
+            elif user_duration == 'shorter':
                 df = df[df['Duration'] < 175000]
             
             count_songs_per_genre = df.groupby('Genre').size().to_string()
             user_genre = input(f'''Okay, now which genre do you prefer? Here's how many songs is left per genre:\n
 {count_songs_per_genre}\n
-What do you choose? ''')
+What do you choose? ''').strip().lower()
             print(f'\nOooh {user_genre.lower()} is my favourite genre as well! Aaand onto the last question!\n')
             
             df = df[df['Genre'].str.strip().str.lower() == user_genre.strip().lower()]
@@ -56,7 +65,7 @@ P.P.S. Here's how many songs are left per century:
 19th: {count_songs_19_century}
 20th: {count_songs_20_century}
 21st: {count_songs_21_century}\n
-What do you choose? ''')
+What do you choose? ''').strip()
             
             # df filter based on the user input
             if user_century == '19':
@@ -83,21 +92,16 @@ It's '{track}' by {artist}, recorded in {year}\n''')
                         break
                     except IndexError:
                         print("Couldn't find a match :( Retrying...")
-            spotify_check = input('Do you want to listen to the song you got? (y/n) ').lower()
-            if spotify_check == 'n':
+            spotify_check = input('Do you want to listen to the song you got? (yes/no) ').strip().lower()
+            if spotify_check == 'no':
                 print('\nOkie, see ya!\n')
                 break
-            elif spotify_check == 'y':
+            elif spotify_check == 'yes':
                 spc.search_track(spc.token, track, artist)
-                try_again = input('\nWanna try again? (y/n) ').lower()
-                if try_again == 'y':
+                try_again = input('\nWanna try again? (yes/no) ').strip().lower()
+                if try_again == 'yes':
                     continue
                 else:            
                     break
 
-
 songselection()
-
-# # next steps -->
-#     # 1. [m] import customtkinter to create a GUI for the user input --> issues with the installation, debug later
-#     # 2. [a] store the user's answers in a dictionary and use it to filter the dataset (more efficient [?])

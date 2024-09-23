@@ -14,29 +14,22 @@ This Kaggle dataset was used for selection based on several criteria:
 <br>
 A random result is then selected from the filtered sample and Spotipy (Spotify's API) is used to open and play the song in the browser version of the application.<br>
 
-<!-- ## ## **Installation**
+## ## **Installation**
 
 To install 'Song Selector', follow these steps:
 
-1. Clone the repository: **`git clone https://github.com/username/project-title.git`**
-2. Navigate to the project directory: **`cd project-title`**
-3. Install dependencies: **`npm install`**
-4. Build the project: **`npm run build`**
-5. Start the project: **`npm start`**
+1. Clone the repository: **`git clone https://github.com/poloniumcube/cfg-final-project.git`**
+2. Navigate to the project directory: **`cd cfg-spotify-final`**
+3. Install dependencies: **`pip install -r requirements.txt`**
 
 ## **Usage**
 
 To use 'Song Selector', follow these steps:
 
 1. Open the project in your favorite code editor.
-2. Modify the source code to fit your needs.
-3. Build the project: **`npm run build`**
-4. Start the project: **`npm start`**
-5. Use the project as desired.
+2. Start the project: **`py main.py`** (or python/python3 main.py)
 
-## **License**
 
-'Song Selector' is released under the MIT License. See the **[LICENSE](https://www.blackbox.ai/share/LICENSE)** file for details. -->
 
 ## **Authors and Acknowledgment**
 
