@@ -67,7 +67,6 @@ P.P.S. Here's how many songs are left per century:
 21st: {count_songs_21_century}\n
 What do you choose? ''').strip()
             
-            # df filter based on the user input
             if user_century == '19':
                 df = df[df['Year'] == 1899]
             elif user_century == '20':
@@ -77,7 +76,7 @@ What do you choose? ''').strip()
             elif user_century == '0':
                 df = df[df['Year'] == random.randint(1889, 2024)]
     
-            if df.empty: # if a random selection landed you on a century with no songs for the previous filters
+            if df.empty: # if a random century selection landed you on a century with no songs for the previous filters
                 print('\nOops! No songs matched your criteria. Let\'s try again with different answers.\n')
                 continue  
             else:
@@ -90,18 +89,15 @@ What do you choose? ''').strip()
                         print(f'''\nThanks for the answers! Based on your choices, here\'s a random song to your liking: 
 It's '{track}' by {artist}, recorded in {year}\n''')
                         break
-                    except IndexError:
+                    except IndexError: # the only try-except because this error was particularly annoying
                         print("Couldn't find a match :( Retrying...")
+                        
             spotify_check = input('Do you want to listen to the song you got? (yes/no) ').strip().lower()
             if spotify_check == 'no':
                 print('\nOkie, see ya!\n')
                 break
             elif spotify_check == 'yes':
                 spc.search_track(spc.token, track, artist)
-                try_again = input('\nWanna try again? (yes/no) ').strip().lower()
-                if try_again == 'yes':
-                    continue
-                else:            
-                    break
+                continue
 
 songselection()
