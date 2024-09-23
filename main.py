@@ -2,7 +2,7 @@ import pandas as pd
 import random
 import spotipy_client as spc
 
-## working code w/o the customtkinter gui
+## working code w/o the customtkinter gui 
 
 def songselection ():
     
