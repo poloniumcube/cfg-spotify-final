@@ -5,7 +5,7 @@ import customtkinter as ctk
 from tkinter import *
 import tkinter
 
-## simplified code (compared to the main.py) :D
+# simplified code (compared to the main.py) :D, a bit buggy but does the job!
 
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("dark-blue")
@@ -60,7 +60,6 @@ What do you choose? ''', font=("Arial", 12),button_fg_color='#1a1a1a',button_tex
     df = df[df['Genre'].str.strip().str.lower() == answer_3.strip().lower()]
     
     # QUESTION 4 - CENTURY
-
     count_songs_19_century = df[df['Year'] == 1899].shape[0]
     count_songs_20_century = df[(df['Year'] > 1900) & (df['Year'] < 2000)].shape[0]
     count_songs_21_century = df[df['Year'] >= 2000].shape[0]

@@ -14,11 +14,11 @@ def songselection ():
         Have fun!
         ''')
 
-    while True: # loop to restart the process if the user wants to try again
+    while True: # loop to restart 
         
         df = pd.read_csv('ClassicHit.csv')        
         
-        # some cleaning for the sake of adhering to best practices (the dataset is expected to be clean but you never know)
+        # some cleaning for the sake of adhering to best practices (this dataset is supposed to be clean but you never know)
         df.drop_duplicates(inplace=True)
         df = df[df['Mode'].isin([0,1])] 
         df['Year'] = pd.to_numeric(df['Year'], errors='coerce')
