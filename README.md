@@ -14,7 +14,7 @@ This Kaggle dataset was used for selection based on several criteria:
 <br>
 A random result is then selected from the filtered sample and Spotipy (Spotify's API) is used to open and play the song in the browser version of the application.<br>
 
-## ## **Installation**
+## **Installation**
 
 To install 'Song Selector', follow these steps:
 
