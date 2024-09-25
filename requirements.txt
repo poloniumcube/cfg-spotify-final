@@ -3,4 +3,3 @@ spotipy
 customtkinter
 python-dotenv
 requests
-customtkinter
